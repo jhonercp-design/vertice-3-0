@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vertice 3.0 — Execução do Sprint 48H Fullstack</title>
+  <meta name="description" content="Simulação e monitoramento em tempo real da execução da sprint de 48 horas do Vertice 3.0." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="synthesis.css" />
+  <link rel="stylesheet" href="sprint.css" />
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-group">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 37,13 37,27 20,37 3,27 3,13" fill="url(#hexG4)" />
+            <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-family="Inter" font-weight="900" font-size="14" fill="white">V</text>
+            <defs><linearGradient id="hexG4" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00FFB2"/><stop offset="100%" stop-color="#6C63FF"/></linearGradient></defs>
+          </svg>
+        </div>
+        <span class="logo-text">Vertice<span class="logo-accent"> Sprint 48H</span></span>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">Dashboard</a>
+        <a href="demoday.html" class="nav-link">Demo Day</a>
+        <a href="synthesis.html" class="nav-link">Síntese</a>
+        <a href="sprint.html" class="nav-link" style="color: var(--accent-green); font-weight:700;">⚡ Sprint Ao Vivo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SPRINT -->
+  <section class="hero synth-hero" style="padding-bottom: 40px;">
+    <div class="synth-hero-badge" style="background: rgba(0,255,178,0.1); color: var(--accent-green); border-color: rgba(0,255,178,0.3);">
+      <span class="badge-dot" style="background: var(--accent-green); box-shadow: 0 0 10px var(--accent-green);"></span>
+      SPRINT 48H FULLSTACK — EXECUÇÃO EM TEMPO REAL
+    </div>
+    <h1 class="hero-title">
+      Executando o <span class="gradient-text-green">Vertice 3.0</span>
+    </h1>
+    <p class="hero-subtitle">
+      Os 20 agentes sêniores estão operando em paralelo. Acompanhe a evolução dos 8 blocos,<br/>
+      o cumprimento dos checkpoints e a saída dos logs do terminal em tempo real.
+    </p>
+
+    <!-- SPRINT CONTROL BAR -->
+    <div class="sprint-controls-bar">
+      <div class="sprint-timer-box">
+        <span class="stb-label">Tempo Transcorrido</span>
+        <span class="stb-time" id="sprint-clock">H00:00:00</span>
+      </div>
+      <div class="sprint-block-box">
+        <span class="stb-label">Bloco Ativo</span>
+        <span class="stb-block-name" id="sprint-current-block">BLOCO 1 — H00–H06</span>
+      </div>
+      <div class="sprint-actions">
+        <button class="btn-sprint-action primary" id="btn-toggle-sprint" onclick="toggleSprintExecution()">▶ Iniciar Execução</button>
+        <button class="btn-sprint-action secondary" onclick="fastForwardSprint()">⚡ Avançar Bloco →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE SPRINT MATRIX & TRACKS -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="section-header">
+      <span class="section-tag">Raias de Trabalho</span>
+      <h2 class="section-title">Evolução por Disciplina</h2>
+    </div>
+    <div class="sprint-tracks-container" id="sprint-tracks-grid">
+      <!-- JS Render -->
+    </div>
+  </section>
+
+  <!-- LIVE TERMINAL & CHECKPOINTS -->
+  <section class="section" style="padding-top: 0;">
+    <div class="sprint-bottom-grid">
+      <!-- TERMINAL LOGS -->
+      <div class="terminal-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="terminal-title">vertice-3.0-monorepo — zsh — 80x24</span>
+        </div>
+        <div class="terminal-body" id="terminal-logs">
+          <div class="log-line info">[SYS] VerticeFlow Engine v3.0 inicializado.</div>
+          <div class="log-line info">[SYS] 20 agentes conectados via WebSocket em http://localhost:7843</div>
+          <div class="log-line success">[READY] Clique em '▶ Iniciar Execução' para disparar o Bloco 1.</div>
+        </div>
+      </div>
+
+      <!-- CHECKPOINTS MONITOR -->
+      <div class="checkpoints-card">
+        <h3 class="cp-title">🎯 Status dos 8 Checkpoints</h3>
+        <div class="checkpoints-list" id="checkpoints-list">
+          <!-- JS Render -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+  <script src="sprint.js"></script>
+</body>
+</html>

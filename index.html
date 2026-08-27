@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vertice 3.0 — Sistema Unificado Fullstack</title>
+  <meta name="description" content="Plataforma unificada do Vertice 3.0 reunindo Dashboard, Demo Day, Síntese de Avaliadores e Sprint 48H em uma única experiência." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="demoday.css" />
+  <link rel="stylesheet" href="synthesis.css" />
+  <link rel="stylesheet" href="sprint.css" />
+  <link rel="stylesheet" href="vertice3.css" />
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- SITE HEADER (UNIFIED NAVIGATION) -->
+  <header class="site-header unified-header">
+    <div class="header-inner">
+      <div class="logo-group">
+        <div class="logo-icon glow-pulse">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 37,13 37,27 20,37 3,27 3,13" fill="url(#uniG1)" />
+            <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-family="Inter" font-weight="900" font-size="14" fill="white">V</text>
+            <defs><linearGradient id="uniG1" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00FFB2"/><stop offset="50%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#6C63FF"/></linearGradient></defs>
+          </svg>
+        </div>
+        <div class="logo-title-wrap">
+          <span class="logo-text">Vertice<span class="logo-accent"> 3.0</span></span>
+          <span class="logo-subtext">Plataforma Unificada</span>
+        </div>
+      </div>
+
+      <!-- MAIN TABS NAVIGATION -->
+      <nav class="unified-nav-tabs">
+        <button class="utab-btn active" id="tabbtn-dashboard" onclick="switchTab('dashboard')">
+          <span class="utab-icon">📊</span> Dashboard
+        </button>
+        <button class="utab-btn" id="tabbtn-demoday" onclick="switchTab('demoday')">
+          <span class="utab-icon">🎯</span> Demo Day
+        </button>
+        <button class="utab-btn" id="tabbtn-synthesis" onclick="switchTab('synthesis')">
+          <span class="utab-icon">✦</span> Síntese
+        </button>
+        <button class="utab-btn highlight" id="tabbtn-sprint" onclick="switchTab('sprint')">
+          <span class="utab-icon">⚡</span> Sprint 48H
+        </button>
+      </nav>
+
+      <!-- LIVE SYSTEM STATUS -->
+      <div class="header-system-status">
+        <div class="hstat-item">
+          <span class="hstat-dot online"></span>
+          <span class="hstat-text">API 7843 Online</span>
+        </div>
+        <div class="hstat-item">
+          <span class="hstat-text text-accent">20 Agentes Ativos</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- ============================================================
+         TAB 1: DASHBOARD CENTRAL
+         ============================================================ -->
+    <div class="tab-pane active" id="pane-dashboard">
+      <section class="hero">
+        <div class="hero-badge">
+          <span class="badge-dot"></span> VERTICE 3.0 — SISTEMA OPERACIONAL UNIFICADO
+        </div>
+        <h1 class="hero-title">
+          Plataforma Unificada<br />
+          <span class="gradient-text">Vertice 3.0</span>
+        </h1>
+        <p class="hero-subtitle">
+          5 times sêniores, 20 agentes autônomos, 4 setores de engenharia.<br />
+          Tudo unificado sob uma única arquitetura de alta performance.
+        </p>
+
+        <!-- KPI STATS CARDS -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-val" style="color: var(--accent-green);">8X UPGRADE</span>
+            <span class="kpi-label">Evolução do Sistema</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-val" style="color: var(--accent-cyan);">11ms</span>
+            <span class="kpi-label">P99 Latência (8X Rápida)</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-val" style="color: var(--accent-pink);">97</span>
+            <span class="kpi-label">NPS Design System</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-val" style="color: var(--accent-orange);">94.2%</span>
+            <span class="kpi-label">Previsibilidade VerticeFlow</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- VERTICE 8X SYSTEM UPGRADE SUMMARY -->
+      <section class="section" style="padding-top: 10px;">
+        <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+          <span class="section-tag" style="background: rgba(0,255,178,0.1); color: var(--accent-green); border-color: rgba(0,255,178,0.3);">
+            🚀 SISTEMA VERTICE 8X — RELATÓRIO DE EVOLUÇÃO
+          </span>
+          <h2 class="section-title">O Que Foi Aprimorado 8X no Vertice</h2>
+          <p class="section-desc">Todos os pilares do sistema receberam upgrades profundos de arquitetura, design, performance e processo.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <div class="kpi-card" style="text-align: left; border-left: 3px solid var(--accent-pink);">
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-pink); text-transform: uppercase; margin-bottom: 4px;">01. UX/UI 8X Superior</div>
+            <strong style="font-size: 1rem; font-family: var(--font-display);">Design System com 240+ Componentes</strong>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">WCAG 2.1 AAA certificado, dark/light mode nativo e 18 micro-animações contextuais.</p>
+          </div>
+
+          <div class="kpi-card" style="text-align: left; border-left: 3px solid var(--accent-cyan);">
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 4px;">02. Performance 8X Mais Rápida</div>
+            <strong style="font-size: 1rem; font-family: var(--font-display);">P99 Latência ≤ 11ms sob 50k req/s</strong>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">GraphQL Federation Gateway, Redis Cluster distribuído e Kubernetes HPA scaling.</p>
+          </div>
+
+          <div class="kpi-card" style="text-align: left; border-left: 3px solid var(--accent-orange);">
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-orange); text-transform: uppercase; margin-bottom: 4px;">03. Previsibilidade 8X Mais Eficiente</div>
+            <strong style="font-size: 1rem; font-family: var(--font-display);">VerticeFlow com 94.2% de Precisão</strong>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">DoD 3-Tier (Dev/QA/Stakeholder), Sprint Health Score no Slack e visibilidade total.</p>
+          </div>
+
+          <div class="kpi-card" style="text-align: left; border-left: 3px solid #C084FC;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #C084FC; text-transform: uppercase; margin-bottom: 4px;">04. Inteligência AI 8X Assertiva</div>
+            <strong style="font-size: 1rem; font-family: var(--font-display);">AI Sprint Forecasting com 89.1% Acurácia</strong>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">Detecção preditiva de gargalos e estimativa automática de velocidade de entrega.</p>
+          </div>
+
+          <div class="kpi-card" style="text-align: left; border-left: 3px solid var(--accent-green);">
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-green); text-transform: uppercase; margin-bottom: 4px;">05. Impacto de Negócio 8X Maior</div>
+            <strong style="font-size: 1rem; font-family: var(--font-display);">Projeção 3x ARR & TAM R$14M</strong>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">Expansão vertical (Saúde, Educação, Agro) e Partner Marketplace com rev-share 30%.</p>
+          </div>
+
+          <div class="kpi-card" style="text-align: left; border-left: 3px solid var(--accent-purple);">
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-purple); text-transform: uppercase; margin-bottom: 4px;">06. Integração 8X Fluida</div>
+            <strong style="font-size: 1rem; font-family: var(--font-display);">Data Mesh & Universal Webhooks</strong>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">Event-driven architecture, Mono-repo Turborepo e CI/CD Blue-Green (<30s rollback).</p>
+          </div>
+
+          <div class="kpi-card" style="text-align: left; border-left: 3px solid var(--accent-yellow);">
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-yellow); text-transform: uppercase; margin-bottom: 4px;">07. Governança 8X Sólida</div>
+            <strong style="font-size: 1rem; font-family: var(--font-display);">Consenso 7/7 de Avaliadores C-Level</strong>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">Aprovação unânime unificando o melhor de cada um dos 5 times competidores.</p>
+          </div>
+
+          <div class="kpi-card" style="text-align: left; border-left: 3px solid #F472B6;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #F472B6; text-transform: uppercase; margin-bottom: 4px;">08. Sistema Unificado 8X Prático</div>
+            <strong style="font-size: 1rem; font-family: var(--font-display);">Plataforma SPA com 4 Ecossistemas</strong>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">Dashboard, Demo Day, Síntese e Sprint Runner 48h com terminal ao vivo em 1 só app.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTORS OVERVIEW -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-tag">Desempenho dos Setores</span>
+          <h2 class="section-title">Progresso dos 4 Setores</h2>
+        </div>
+        <div class="sectors-grid" id="dashboard-sectors-grid"></div>
+      </section>
+
+      <!-- LEADERBOARD -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-tag">Classificação Geral</span>
+          <h2 class="section-title">Placar dos Times</h2>
+        </div>
+        <div class="leaderboard-wrap" id="dashboard-leaderboard"></div>
+      </section>
+    </div>
+
+    <!-- ============================================================
+         TAB 2: DEMO DAY & VOTAÇÃO
+         ============================================================ -->
+    <div class="tab-pane" id="pane-demoday">
+      <section class="hero synth-hero">
+        <div class="synth-hero-badge" style="background: rgba(255,107,157,0.1); color: var(--accent-pink); border-color: rgba(255,107,157,0.3);">
+          🎯 DEMO DAY & VOTAÇÃO — AO VIVO
+        </div>
+        <h1 class="hero-title">
+          Apresentações Finais &<br/><span class="gradient-text-pink">Votação da Comunidade</span>
+        </h1>
+        <p class="hero-subtitle">
+          Assista ao feed ao vivo dos agentes, acompanhe as notas do júri e vote no melhor time.
+        </p>
+      </section>
+
+      <!-- LIVE FEED & JURY CHAT -->
+      <section class="section" style="padding-top:0;">
+        <div class="demoday-grid">
+          <div class="live-feed-card">
+            <div class="card-header-bar">
+              <div class="card-title-group">
+                <span class="live-dot-pulse"></span>
+                <h3>Feed dos Agentes em Tempo Real</h3>
+              </div>
+            </div>
+            <div class="feed-list" id="demoday-live-feed"></div>
+          </div>
+          <div class="jury-card">
+            <div class="card-header-bar">
+              <h3>💬 Avaliações do Júri Sênior</h3>
+            </div>
+            <div class="jury-chat-body" id="demoday-jury-chat"></div>
+            <div class="jury-scores-panel" id="demoday-jury-scores"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRESENTATION CARDS -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-tag">Projetos Entregues</span>
+          <h2 class="section-title">Apresentações dos 5 Times</h2>
+        </div>
+        <div class="presentations-grid" id="demoday-presentations-grid"></div>
+      </section>
+
+      <!-- VOTING & WINNER REVEAL -->
+      <section class="section" id="votacao">
+        <div class="section-header">
+          <span class="section-tag">Sua Opinião Importa</span>
+          <h2 class="section-title">Votação da Comunidade</h2>
+        </div>
+        <div class="voting-box-container">
+          <div class="voting-grid" id="demoday-voting-area"></div>
+          <div class="voting-actions" style="margin-top: 24px; text-align: center;">
+            <button class="btn-launch" id="btn-demoday-vote" onclick="submitDemoDayVote()" style="padding: 14px 40px; font-size:1rem;">
+              🗳 Registrar Voto →
+            </button>
+            <div id="demoday-vote-feedback" style="margin-top: 14px; font-weight: 600; min-height: 24px;"></div>
+          </div>
+        </div>
+
+        <div class="winner-stage-container" id="demoday-winner-stage" style="display:none; margin-top:40px;"></div>
+      </section>
+    </div>
+
+    <!-- ============================================================
+         TAB 3: SÍNTESE & 7 AVALIADORES
+         ============================================================ -->
+    <div class="tab-pane" id="pane-synthesis">
+      <section class="hero synth-hero">
+        <div class="synth-hero-badge">
+          PAINEL DE SÍNTESE — O MELHOR DE CADA TIME
+        </div>
+        <h1 class="hero-title">
+          Matriz de Avaliação &<br/><span class="gradient-text">Proposta Unificada</span>
+        </h1>
+        <p class="hero-subtitle">
+          7 avaliadores especialistas analisaram as 5 propostas e extraíram os elementos superiores.
+        </p>
+      </section>
+
+      <!-- EVALUATORS PANEL -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-tag">Painel de 7 Especialistas</span>
+          <h2 class="section-title">Os Avaliadores</h2>
+        </div>
+        <div class="evaluators-grid" id="synthesis-evaluators-grid"></div>
+      </section>
+
+      <!-- COMPARATIVE MATRIX -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-tag">Score por Dimensão</span>
+          <h2 class="section-title">Matriz Comparativa</h2>
+        </div>
+        <div class="analysis-matrix" id="synthesis-matrix-container"></div>
+      </section>
+
+      <!-- UNIFIED PROPOSAL 5 PILLARS -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-tag">Proposta Definitiva</span>
+          <h2 class="section-title">Os 5 Pilares do Vertice 3.0</h2>
+        </div>
+        <div id="synthesis-unified-container"></div>
+      </section>
+    </div>
+
+    <!-- ============================================================
+         TAB 4: SPRINT 48H FULLSTACK
+         ============================================================ -->
+    <div class="tab-pane" id="pane-sprint">
+      <section class="hero synth-hero">
+        <div class="synth-hero-badge" style="background: rgba(0,255,178,0.1); color: var(--accent-green); border-color: rgba(0,255,178,0.3);">
+          ⚡ SPRINT 48H FULLSTACK — MONITORAMENTO AO VIVO
+        </div>
+        <h1 class="hero-title">
+          Execução & Deploy do<br/><span class="gradient-text-green">Vertice 3.0</span>
+        </h1>
+        <p class="hero-subtitle">
+          Execução em 8 blocos de 6 horas com streaming de terminal e validação de checkpoints.
+        </p>
+
+        <!-- SPRINT CONTROLS BAR -->
+        <div class="sprint-controls-bar">
+          <div class="sprint-timer-box">
+            <span class="stb-label">Tempo Transcorrido</span>
+            <span class="stb-time" id="uni-sprint-clock">H18:30:12</span>
+          </div>
+          <div class="sprint-block-box">
+            <span class="stb-label">Bloco Ativo</span>
+            <span class="stb-block-name" id="uni-sprint-block">BLOCO 4 — H18–H24</span>
+          </div>
+          <div class="sprint-actions">
+            <button class="btn-sprint-action primary" id="uni-btn-toggle" onclick="toggleUniSprint()">▶ Iniciar Execução</button>
+            <button class="btn-sprint-action secondary" onclick="fastForwardUniSprint()">⚡ Avançar Bloco →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPRINT TRACKS -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-tag">Evolução por Disciplina</span>
+          <h2 class="section-title">Raias de Trabalho</h2>
+        </div>
+        <div class="sprint-tracks-container" id="uni-sprint-tracks"></div>
+      </section>
+
+      <!-- TERMINAL & CHECKPOINTS -->
+      <section class="section">
+        <div class="sprint-bottom-grid">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="terminal-title">vertice-3.0-monorepo — zsh</span>
+            </div>
+            <div class="terminal-body" id="uni-terminal-logs">
+              <div class="log-line info">[SYS] Vertice 3.0 Unified Engine pronto.</div>
+              <div class="log-line success">[READY] API Server rodando em http://localhost:7843</div>
+            </div>
+          </div>
+
+          <div class="checkpoints-card">
+            <h3 class="cp-title">🎯 Status dos 8 Checkpoints</h3>
+            <div class="checkpoints-list" id="uni-checkpoints-list"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- PRESENTATION DETAIL MODAL -->
+  <div class="modal-overlay" id="uni-modal-overlay" onclick="closeUniModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeUniModal()">✕</button>
+      <div id="uni-modal-content"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="demoday.js"></script>
+  <script src="synthesis.js"></script>
+  <script src="sprint.js"></script>
+  <script src="vertice3.js"></script>
+</body>
+</html>

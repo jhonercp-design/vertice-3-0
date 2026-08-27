@@ -1,0 +1,246 @@
+/* ============================================================
+   SPRINT 48H EXECUTION — CSS STYLES
+   ============================================================ */
+
+.sprint-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-md);
+}
+
+.stb-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.stb-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-green);
+  text-shadow: 0 0 12px rgba(0, 255, 178, 0.4);
+}
+
+.stb-block-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sprint-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-sprint-action {
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-sprint-action.primary {
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+  color: #06060f;
+}
+.btn-sprint-action.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 255, 178, 0.35);
+}
+
+.btn-sprint-action.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.btn-sprint-action.secondary:hover {
+  border-color: var(--border-active);
+  color: var(--text-primary);
+}
+
+/* ── TRACKS GRID ──────────────────────────────────────────── */
+.sprint-tracks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.strack-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--track-color, var(--accent-purple));
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: all 0.3s;
+}
+.strack-card:hover {
+  border-color: var(--track-color, var(--accent-purple));
+  transform: translateY(-3px);
+}
+
+.strack-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.strack-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.strack-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.strack-bar-bg {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.strack-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.strack-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.strack-task-item {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.strack-task-item.done {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* ── BOTTOM TERMINAL & CHECKPOINTS ────────────────────────── */
+.sprint-bottom-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.terminal-card {
+  background: #090a16;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-header {
+  background: #121426;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.dot.red { background: #FF5F56; }
+.dot.yellow { background: #FFBD2E; }
+.dot.green { background: #27C93F; }
+
+.terminal-title {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.terminal-body {
+  padding: 16px;
+  height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.log-line {
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.log-line.info { color: var(--accent-cyan); }
+.log-line.success { color: var(--accent-green); }
+.log-line.warn { color: var(--accent-orange); }
+.log-line.agent { color: var(--text-secondary); }
+
+.checkpoints-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+.cp-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.checkpoints-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cp-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+}
+.cp-item.passed {
+  border-color: rgba(0, 255, 178, 0.3);
+  background: rgba(0, 255, 178, 0.05);
+}
+.cp-item.active {
+  border-color: rgba(255, 179, 71, 0.4);
+  background: rgba(255, 179, 71, 0.05);
+}
+
+@media (max-width: 900px) {
+  .sprint-bottom-grid { grid-template-columns: 1fr; }
+}

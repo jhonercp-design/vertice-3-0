@@ -1,0 +1,125 @@
+// Vertice 3.0 — Prisma Database Schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum SectorType {
+  UI_UX
+  PROGRAMMING
+  AGILE_METHODS
+  STRATEGY
+}
+
+enum AgentStatus {
+  ACTIVE
+  CODING
+  TESTING
+  REVIEWING
+  IDLE
+}
+
+model Team {
+  id          String       @id @default(uuid())
+  name        String       @unique
+  sector      SectorType
+  icon        String
+  color       String
+  score       Int          @default(0)
+  rank        Int          @default(0)
+  vision      String
+  pitch       String
+  deliverables String[]
+  agents      Agent[]
+  juryReviews JuryReview[]
+  votes       CommunityVote?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Agent {
+  id        String      @id @default(uuid())
+  name      String
+  role      String
+  sector    SectorType
+  avatar    String
+  status    AgentStatus @default(ACTIVE)
+  teamId    String
+  team      Team        @relation(fields: [teamId], references: [id])
+  activities AgentActivity[]
+  createdAt DateTime    @default(now())
+}
+
+model AgentActivity {
+  id        String   @id @default(uuid())
+  agentId   String
+  agent     Agent    @relation(fields: [agentId], references: [id])
+  action    String
+  details   String
+  timestamp DateTime @default(now())
+}
+
+model JuryReview {
+  id          String   @id @default(uuid())
+  jurorName   String
+  jurorRole   String
+  teamId      String
+  team        Team     @relation(fields: [teamId], references: [id])
+  score       Float
+  comment     String
+  innovation  Int
+  impact      Int
+  execution   Int
+  createdAt   DateTime @default(now())
+}
+
+model CommunityVote {
+  id          String   @id @default(uuid())
+  teamId      String   @unique
+  team        Team     @relation(fields: [teamId], references: [id])
+  votesCount  Int      @default(0)
+  percentage  Float    @default(0)
+  updatedAt   DateTime @updatedAt
+}
+
+model Evaluator {
+  id         String   @id @default(uuid())
+  name       String
+  role       String
+  emoji      String
+  color      String
+  specialty  String
+  dimension  String
+  findings   String[]
+  createdAt  DateTime @default(now())
+}
+
+model SynthesisPillar {
+  id         String   @id @default(uuid())
+  title      String
+  icon       String
+  color      String
+  sourceTeam String
+  desc       String
+  items      String[]
+  credit     String
+  createdAt  DateTime @default(now())
+}
+
+model RoadmapBlock {
+  id          String   @id @default(uuid())
+  blockCode   String   @unique // H00-H06, H06-H12, etc.
+  label       String
+  title       String
+  color       String
+  icon        String
+  checkpoint  String
+  tracksJson  String   // JSON string of discipline tracks
+  order       Int
+  createdAt   DateTime @default(now())
+}

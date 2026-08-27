@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Day — Vertice Hackathon 3.0</title>
+  <meta name="description" content="Apresentações finais dos 5 times sênior do Vertice Hackathon 3.0. Vote no melhor e descubra quem constrói o Vertice 3.0." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="demoday.css" />
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-group">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 37,13 37,27 20,37 3,27 3,13" fill="url(#hexGrad2)" />
+            <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-family="Inter" font-weight="900" font-size="14" fill="white">V</text>
+            <defs>
+              <linearGradient id="hexGrad2" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#6C63FF" />
+                <stop offset="100%" stop-color="#00D4FF" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Vertice<span class="logo-accent"> Demo Day</span></span>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">← Dashboard</a>
+        <a href="#apresentacoes" class="nav-link">Apresentações</a>
+        <a href="#feed" class="nav-link">Feed Ao Vivo</a>
+        <a href="#votacao" class="nav-link">Votação</a>
+        <a href="synthesis.html" class="nav-link" style="color: var(--accent-green); font-weight:700;">✦ Síntese Final</a>
+        <button class="btn-launch" id="btn-reveal-winner" style="display:none;" onclick="revealWinner()">🏆 Revelar Vencedor</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO DEMO DAY -->
+  <section class="hero demo-hero">
+    <div class="demo-stage-label">
+      <span class="badge-dot"></span>
+      DEMO DAY — APRESENTAÇÕES FINAIS AO VIVO
+    </div>
+    <h1 class="hero-title">
+      Quem vai construir o<br/><span class="gradient-text">Vertice 3.0?</span>
+    </h1>
+    <p class="hero-subtitle">
+      Os 5 times apresentam suas soluções. Avalie, vote e decida qual visão<br/>
+      vai definir o futuro do sistema Vertice.
+    </p>
+
+    <div class="demo-status-bar">
+      <div class="dsb-item">
+        <span class="dsb-val" id="votes-cast">0</span>
+        <span class="dsb-label">Votos registrados</span>
+      </div>
+      <div class="dsb-sep">|</div>
+      <div class="dsb-item">
+        <span class="dsb-val" id="active-presentations">5</span>
+        <span class="dsb-label">Apresentações ativas</span>
+      </div>
+      <div class="dsb-sep">|</div>
+      <div class="dsb-item">
+        <span class="dsb-val" id="total-deliverables">24</span>
+        <span class="dsb-label">Entregáveis submetidos</span>
+      </div>
+      <div class="dsb-sep">|</div>
+      <div class="dsb-item">
+        <span class="dsb-val" id="jury-score">—</span>
+        <span class="dsb-label">Líder atual</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEED AO VIVO -->
+  <section class="section" id="feed">
+    <div class="two-col-layout">
+
+      <!-- FEED -->
+      <div class="feed-col">
+        <div class="section-header" style="text-align:left; margin-bottom:28px;">
+          <span class="section-tag">Tempo Real</span>
+          <h2 class="section-title" style="font-size:1.8rem;">Feed dos Agentes</h2>
+        </div>
+        <div class="live-feed" id="live-feed">
+          <!-- Gerado via JS -->
+        </div>
+      </div>
+
+      <!-- CHAT DO JÚRI -->
+      <div class="jury-col">
+        <div class="section-header" style="text-align:left; margin-bottom:28px;">
+          <span class="section-tag">Avaliadores</span>
+          <h2 class="section-title" style="font-size:1.8rem;">Painel do Júri</h2>
+        </div>
+        <div class="jury-panel">
+          <div class="jury-scores" id="jury-scores">
+            <!-- Gerado via JS -->
+          </div>
+          <div class="jury-chat" id="jury-chat">
+            <!-- Gerado via JS -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- APRESENTAÇÕES DOS TIMES -->
+  <section class="section" id="apresentacoes">
+    <div class="section-header">
+      <span class="section-tag">Apresentações Finais</span>
+      <h2 class="section-title">O que cada time entregou</h2>
+      <p class="section-desc">Explore a proposta completa de cada time para o Vertice 3.0 antes de votar.</p>
+    </div>
+
+    <div class="presentations-grid" id="presentations-grid">
+      <!-- Gerado via JS -->
+    </div>
+  </section>
+
+  <!-- VOTAÇÃO -->
+  <section class="section" id="votacao">
+    <div class="section-header">
+      <span class="section-tag">Votação Aberta</span>
+      <h2 class="section-title">Vote no melhor Vertice 3.0</h2>
+      <p class="section-desc">Sua voz conta. Selecione o time que entregou a melhor solução integrada.</p>
+    </div>
+
+    <div class="voting-area" id="voting-area">
+      <!-- Gerado via JS -->
+    </div>
+
+    <div class="vote-submit-area">
+      <div id="vote-feedback" class="vote-feedback"></div>
+      <button class="btn-vote-submit" id="btn-vote-submit" onclick="submitVote()">
+        Registrar Voto →
+      </button>
+    </div>
+  </section>
+
+  <!-- RESULTADO FINAL (oculto até revelar) -->
+  <section class="section" id="resultado" style="display:none;">
+    <div class="winner-stage" id="winner-stage">
+      <!-- Gerado via JS -->
+    </div>
+  </section>
+
+  <!-- MODAL DE APRESENTAÇÃO COMPLETA -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closePresentationModal()">
+    <div class="modal presentation-modal" id="presentation-modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closePresentationModal()">✕</button>
+      <div id="presentation-modal-content"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="demoday.js"></script>
+</body>
+</html>

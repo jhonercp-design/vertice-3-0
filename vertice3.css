@@ -1,0 +1,163 @@
+/* ============================================================
+   VERTICE 3.0 UNIFIED APPLICATION — CSS STYLES
+   ============================================================ */
+
+/* ── UNIFIED HEADER & TABS ────────────────────────────────── */
+.unified-header {
+  border-bottom: 1px solid var(--border);
+  background: rgba(6, 6, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+}
+
+.logo-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.logo-subtext {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.unified-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.utab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-smooth);
+}
+.utab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+.utab-btn.active {
+  background: var(--accent-purple);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(108, 99, 255, 0.4);
+}
+.utab-btn.highlight.active {
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+  color: #06060F;
+  box-shadow: 0 4px 14px rgba(0, 255, 178, 0.4);
+}
+
+.header-system-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hstat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.hstat-dot.online {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+}
+.text-accent {
+  color: var(--accent-cyan);
+}
+
+/* ── TAB PANES ────────────────────────────────────────────── */
+.main-container {
+  padding-top: 90px;
+}
+
+.tab-pane {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.tab-pane.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── KPI GRID ─────────────────────────────────────────────── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+  width: 100%;
+  max-width: 900px;
+}
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.kpi-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-3px);
+}
+.kpi-val {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 4px;
+}
+.kpi-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* ── GRADIENT EXTENSIONS ──────────────────────────────────── */
+.gradient-text-pink {
+  background: linear-gradient(135deg, #FF6B9D 0%, #FFB347 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-green {
+  background: linear-gradient(135deg, #00FFB2 0%, #00D4FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── RESPONSIVE TABS ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .header-inner { flex-direction: column; gap: 12px; }
+  .main-container { padding-top: 170px; }
+  .header-system-status { display: none; }
+}
